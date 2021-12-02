@@ -1,0 +1,43 @@
+<div id="wrapper">
+  <div class="vertical-align-wrap">
+    <div class="vertical-align-middle auth-main">
+      <div class="auth-box">
+        <div class="top">
+          <img src="http://www.wrraptheme.com/templates/lucid/hr/html/assets/images/logo-white.svg" alt="Lucid">
+        </div>
+        <div class="card">
+          <div class="header">
+            <p class="lead">Login to your account</p>
+          </div>
+          <div class="body">
+            <form class="form-auth-small"
+                  [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="form-group">
+                <label for="signin-email" class="control-label sr-only">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="signin-email" value="user@domain.com" placeholder="Email">
+                <div *ngIf="submitted && f.email.errors" >
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">format is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="signin-password" class="control-label sr-only">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="signin-password" value="thisisthepassword" placeholder="Password">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+           
+              <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+              <div class="bottom">
+               
+                <span>Don't have an account? <a href="/register">Register</a></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
